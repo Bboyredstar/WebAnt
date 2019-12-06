@@ -1,0 +1,57 @@
+/*Styles for header, header logo, navigation*/
+@font-face {
+    font-family: 'fontaf02efdb96750fafdab61330e1638a34';
+
+    src: url('https://nomail.com.ua/files/eot/af02efdb96750fafdab61330e1638a34.eot?#iefix') format('embedded-opentype'),
+        url('https://nomail.com.ua/files/woff/af02efdb96750fafdab61330e1638a34.woff') format('woff'),
+        url('https://nomail.com.ua/files/woff2/af02efdb96750fafdab61330e1638a34.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Acrom-Light';
+    src: local('Acrom-Light'), url('https://nomail.com.ua/files/woff/af02efdb96750fafdab61330e1638a34.woff') format('woff');
+}
+
+.header {
+    margin: 0;
+    width: 100%;
+    padding: 0 24px;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-end;
+    background: #fff;
+}
+
+.header-logo {
+    margin: 0;
+    padding: 0;
+    margin-right: 198px;
+}
+
+.navigation {
+    margin: 0;
+    padding: 0 20px;
+    height: 28px;
+    width: 65%;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 2px solid #E4E7ED;
+}
+
+.navigation-links {
+    display: block;
+    width: 60px;
+    margin-right: 35px;
+    line-height: 14px;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Acrom-Light', sans-serif;
+    color: #8C8C8C;
+    transition: all .2s ease; 
+}
+
+.navigation-links:hover {
+    height: 28px;
+    color: #ED5992;
+    border-bottom: 2px solid;
+}
