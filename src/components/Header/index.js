@@ -9,10 +9,10 @@ const Header = ()=>{
         <header className= "header">
             <img src={logo} alt="header-logo" className="header-logo"/>
                 <nav className='navigation'>
-                    <NavLink to='/New' className="navigation-links" activeClassName="navigation-links active">
+                    <NavLink to='/new' className="navigation-links" activeClassName="navigation-links active">
                         New
                     </NavLink>
-                    <NavLink to='/Popular' className="navigation-links" activeClassName="navigation-links active">
+                    <NavLink to='/popular' className="navigation-links" activeClassName="navigation-links active">
                         Popular
                     </NavLink>
                 </nav>

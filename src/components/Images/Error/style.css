@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "SF Display";
+    font-weight: 400;
+    src: url("https://sf.abarba.me/SF-UI-Display-Regular.otf");
+  }
+/*Style for bad/no intenet*/
+.connection{
+    position:absolute;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    text-align: center;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-family:'SF Display',sans-serif;
+}
+.error-title{
+    display:block;
+    margin-top:10px; 
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 0.24px;
+    text-align: center;
+    color:#2F1767
+}
+.error-description{
+    margin-top: 10px;
+    padding: 0;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.24px;
+    display:inline-block;
+    color: #4A4A4A;
+}

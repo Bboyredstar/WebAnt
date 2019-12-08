@@ -14,11 +14,11 @@ function App() {
         <div className="App">
           <Header/>
           <Switch>
-               <Route exact path="/New">
+               <Route exact path="/new">
                   {/* <Images newImages = {true} popularImages = {false} /> */}
                   <Images/>
               </Route>
-              <Route exact path="/Popular ">
+              <Route  path="/popular">
                   {/* <Images newImages = {false} popularImages = {true} /> */}
                   <Images/>
               </Route>
