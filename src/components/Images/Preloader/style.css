@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'fontaf02efdb96750fafdab61330e1638a34';
+
+    src: url('https://nomail.com.ua/files/eot/af02efdb96750fafdab61330e1638a34.eot?#iefix') format('embedded-opentype'),
+        url('https://nomail.com.ua/files/woff/af02efdb96750fafdab61330e1638a34.woff') format('woff'),
+        url('https://nomail.com.ua/files/woff2/af02efdb96750fafdab61330e1638a34.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Acrom-Light';
+    src: local('Acrom-Light'), url('https://nomail.com.ua/files/woff/af02efdb96750fafdab61330e1638a34.woff') format('woff');
+}
+
+/* Rules for Preloader*/
+.preloader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+/* Style and animation for round */
+.round {
+    display: inline-block;
+    margin-right: 15px;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    animation-name: run;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration:1s;
+    animation-timing-function: linear;
+
+}
+
+.first {
+    animation-delay: 1.5s;
+}
+
+.second {
+    animation-delay: 1s;
+}
+
+.third {
+    animation-delay: .5s;
+}
+
+@keyframes run {
+    0% {
+        transform: scale(1);
+        background: #733CE2;
+    }
+
+    50% {
+        transform: scale(1.2);
+        background: #31196D;
+    }
+
+    100% {
+        transform: scale(1.6);
+        background: #ED5992;
+    }
+}
+
+/* Preloader-text */
+.preloader-text {
+    margin-top: 10px;
+    display: block;
+    font-family: 'Acrom-Light';
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: bold;
+}

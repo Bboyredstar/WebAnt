@@ -55,3 +55,9 @@
     color: #ED5992;
     border-bottom: 2px solid;
 }
+
+.active {
+    height: 28px;
+    color: #ED5992;
+    border-bottom: 2px solid;
+}
