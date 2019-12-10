@@ -1,27 +1,26 @@
 import React from 'react'
-import './App.css'
 import Header from './components/Header'
 import Images from './components/Images'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-} from "react-router-dom"
+  Redirect,
+} from 'react-router-dom'
 
 function App() {
   return (
     <Router>
-        <div className="App">
+        <div>
           <Header/>
           <Switch>
-               <Route exact path="/new">
-                  {/* <Images newImages = {true} popularImages = {false} /> */}
-                  <Images/>
+               <Route exact path='/new'>
+                <Images New/>  
               </Route>
-              <Route  path="/popular">
-                  {/* <Images newImages = {false} popularImages = {true} /> */}
-                  <Images/>
+              <Route path='/popular'>
+                <Images Popular/>
               </Route>
+              <Redirect to='/new'/>
           </Switch>
         </div>
     </Router>
