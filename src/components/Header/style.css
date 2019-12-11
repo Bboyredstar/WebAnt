@@ -32,7 +32,7 @@
     margin: 0;
     padding: 0 20px;
     height: 28px;
-    width: 65%;
+    width: 100%;
     display: flex;
     align-items: flex-start;
     border-bottom: 2px solid #E4E7ED;
@@ -47,7 +47,7 @@
     text-align: center;
     font-family: 'Acrom-Light', sans-serif;
     color: #8C8C8C;
-    transition: all .2s ease; 
+    transition: all .2s ease;
 }
 
 .navigation-links:hover {

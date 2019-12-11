@@ -2,17 +2,25 @@ import React, { useState,useEffect } from 'react'
 import Preloader from './Preloader'
 import BadConnection from './Error'
 import Image from './Image'
-import './style.css'
 import Axios from 'axios'
 import { Pagination } from 'antd';
+import 'antd/dist/antd.css'; 
+import './style.css'
 
-  
 const Images = ({New = false, Popular = false})=>{
-    const [error,setError] = useState(false)
+    const [isErrored,setError] = useState(false)
     const [isLoading,setLoading] = useState(true)
-    const [images,setImages] = useState()
+    const [images,setImages] = useState([])
     const [page,setPage] = useState(1)
     const [countOfItems,setCount] = useState(1)
+
+    useEffect(() => {
+        return () => {
+            setPage(1)
+            setLoading(false)
+            setImages([])
+        }
+    },[New, Popular])
    
     useEffect(() => {   
        fetchData()
@@ -28,13 +36,11 @@ const Images = ({New = false, Popular = false})=>{
                     limit:15
                 }
             }) 
-            console.log({data})
             setCount( data.totalItems)
             setImages(data.data)
             setLoading(false)
         }
         catch(e){
-            console.log({e})
             setLoading(false)
             setError(true)
         }
@@ -51,18 +57,19 @@ const Images = ({New = false, Popular = false})=>{
             }
             return null
         }
-        const changePage = (e) =>{
-            console.log(e.target.value)
-        }
-        
 
         return (
             <div className='container'>
-                {isLoading ? <Preloader/>:imageMap()} 
-                {error && <BadConnection/>}
-                {!isLoading &&<Pagination className='pagination' defaultCurrent={1} pageSize={15}  total={countOfItems} onChange={e => setPage(e)}/>} 
+                {isLoading ?
+                    <Preloader/>
+                    : <>
+                        {imageMap()}
+                         <Pagination showTitle={false} className='pagination' hideOnSinglePage={true} defaultCurrent={1} pageSize={15}  total={countOfItems} onChange={e => setPage(e)}/>
+                    </>
+                } 
+                {isErrored && <BadConnection/>}
             </div>
-    )
+        )
 }
 
 export default Images

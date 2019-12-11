@@ -1,32 +1,71 @@
-.item{
-   position: relative;
-   overflow: hidden;
-   height:100%;
-   width:100%;
-   overflow: hidden; 
+/*item-image & modal window styles*/
+@font-face {
+    font-family: 'fontaf02efdb96750fafdab61330e1638a34';
+
+    src: url('https://nomail.com.ua/files/eot/af02efdb96750fafdab61330e1638a34.eot?#iefix') format('embedded-opentype'),
+        url('https://nomail.com.ua/files/woff/af02efdb96750fafdab61330e1638a34.woff') format('woff'),
+        url('https://nomail.com.ua/files/woff2/af02efdb96750fafdab61330e1638a34.woff2') format('woff2');
 }
 
-.item-image{
-    background:rgba(197,197,197,1);
-    background-size:cover;
-    background-repeat:no-repeat;
+@font-face {
+    font-family: 'Acrom-Light';
+    src: local('Acrom-Light'), url('https://nomail.com.ua/files/woff/af02efdb96750fafdab61330e1638a34.woff') format('woff');
+}
+
+.item {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 10px 15px -1px rgba(197, 197, 197, 1);
+    border-radius: 7px;
+}
+
+.item-image {
+    background: rgba(197, 197, 197, 1);
     background-clip: content-box;
     cursor: pointer;
-    width:100%;
-    height:90%;
-    border-radius:7px;
-    box-shadow: 0px 10px 15px -1px rgba(197,197,197,1); 
+    width: 100%;
+    height: 100%;
 }
+
 .item-image:hover {
-    background:rgb(139, 137, 137);
+    background: rgb(139, 137, 137);
     opacity: .5;
     background-blend-mode: overlay;
 }
 
-.modal-image{
+.modal-image {
     display: block;
-    height: 100%;
-    width:100%;
+    width: 680px;
+    height: 510px;
     position: relative;
-    margin:0 auto;
+    margin: 0 auto;
+}
+
+.modal-image__info {
+    width: 680px;
+    height: 126px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 16px;
+}
+
+.modal-image__name {
+    font-family: 'Acrom-Light', sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 700;
+    color: #2F1767;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-image__description {
+    padding: 0;
+    margin-top: 20px;
+    font-family: 'Acrom-Light', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #606266;
 }
