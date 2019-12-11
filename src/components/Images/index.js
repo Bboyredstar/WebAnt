@@ -64,7 +64,7 @@ const Images = ({New = false, Popular = false})=>{
                     <Preloader/>
                     : <>
                         {imageMap()}
-                         <Pagination showTitle={false} className='pagination' hideOnSinglePage={true} defaultCurrent={1} pageSize={15}  total={countOfItems} onChange={e => setPage(e)}/>
+                         <Pagination showTitle={false} className='pagination' current={page} hideOnSinglePage={true} pageSize={15} total={countOfItems} onChange={e => setPage(e)}/>
                     </>
                 } 
                 {isErrored && <BadConnection/>}
