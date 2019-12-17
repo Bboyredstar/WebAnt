@@ -1,12 +1,14 @@
 import React from 'react'
 import Header from './components/Header'
 import Images from './components/Images'
+import Authentification from './components/Authentification'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from 'react-router-dom'
+
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
               </Route>
               <Route path='/popular'>
                 <Images Popular/>
+              </Route>
+              <Route path='/authentification'>
+                <Authentification/>
               </Route>
               <Redirect to='/new'/>
           </Switch>

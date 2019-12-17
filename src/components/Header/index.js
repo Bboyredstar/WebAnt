@@ -1,10 +1,9 @@
 import React from 'react'
-import './style.css'
 import logo from '../../assets/images/logo.png'
-import  { NavLink}   from 'react-router-dom'
-  
+import  { NavLink }   from 'react-router-dom'
+import './style.css'
 
-const Header = ()=>{
+const Header = ()=>{    
     return(
         <header className= 'header'>
             <img src={logo} alt='header-logo' className='header-logo'/>
@@ -15,7 +14,11 @@ const Header = ()=>{
                     <NavLink to='/popular' className='navigation-links' activeClassName='active'>
                         Popular
                     </NavLink>
+                    <NavLink to='/authentification' className='authentification-link' activeClassName=''>
+                        <img src='https://img.icons8.com/wired/64/000000/user-credentials.png' alt='auth-logo' className='auth-logo' title='Sign In'/> 
+                    </NavLink>
                 </nav>
+               
         </header>
     );
 }

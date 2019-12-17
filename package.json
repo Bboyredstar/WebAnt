@@ -1,6 +1,7 @@
 {
   "name": "react-test",
   "version": "0.1.0",
+  "proxy":"http://gallery.dev.webant.ru",
   "private": true,
   "dependencies": {
     "antd": "^3.26.0",

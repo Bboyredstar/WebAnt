@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //Style
 import App from './App';
-import { DatePicker, message } from 'antd';
-import 'antd/dist/antd.css';
 import * as serviceWorker from './serviceWorker';
+
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

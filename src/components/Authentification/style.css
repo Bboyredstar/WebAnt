@@ -1,0 +1,30 @@
+.authform{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    min-height: 90vh;
+}
+.authform__input{
+    display:block;
+    padding: 0 5px;
+    margin-bottom:15px;
+    line-height: 25px;
+    font-size: 16px;
+    font-family:'Acrom-Light',sans-serif;
+    font-weight: 700;
+    border: 1px solid  #8C8C8C;
+    border-radius:2px;
+    box-shadow: 0 0 4px 1px rgba(140, 140, 140,.6);
+    outline: none;
+}
+::placeholder{
+    color:#ED5992
+}
+.authform__input:focus{
+    border: 1px solid rgba(237, 89, 146,.6);
+    box-shadow: 0 0 4px 1px rgba(237, 89, 146,.6);
+}
+.authform__input:focus::placeholder,.authform__input:hover::placeholder{
+    color:#8C8C8C;
+}

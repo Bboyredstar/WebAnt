@@ -11,7 +11,6 @@
     font-family: 'Acrom-Light';
     src: local('Acrom-Light'), url('https://nomail.com.ua/files/woff/af02efdb96750fafdab61330e1638a34.woff') format('woff');
 }
-
 .header {
     margin: 0;
     width: 100%;
@@ -29,7 +28,7 @@
 }
 
 .navigation {
-    margin: 0;
+    margin: 0 20px 0 0;
     padding: 0 20px;
     height: 28px;
     width: 100%;
@@ -60,4 +59,24 @@
     height: 28px;
     color: #ED5992;
     border-bottom: 2px solid;
+}
+/*Authentification*/
+.auth-logo{
+    height: 35px;
+    width: 35px;
+    cursor:pointer;
+    transition: all .2s;
+}
+.authentification-link{
+    position: relative;
+    border:none;
+    display:block;
+    margin-top:0;
+    padding:4px;
+    align-self: flex-end;
+    margin-left:auto;
+    transition: all .2s ease;
+}
+.authentification-link:hover{
+    transform:scale(1.1)
 }

@@ -28,7 +28,7 @@ const Images = ({New = false, Popular = false})=>{
     
       const fetchData = async () =>{
         try{
-                const {data} = await Axios.get('api/photos',{
+            const {data} = await Axios.get('api/photos',{
                 params:{
                     new:New,
                     popular:Popular,
