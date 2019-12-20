@@ -28,7 +28,7 @@ const SignIn = ()=> {
         setDescription('Sorry some problem with server, try again later!')
       }
     }
-    const gettingToken = async () =>{
+    const getToken = async () =>{
         try{
           const data = await Axios.get('oauth/v2/token',{
             params:{
@@ -39,15 +39,15 @@ const SignIn = ()=> {
               'password':userPasswd
             }
           })
-          settingTokens(data.data.access_token,data.data.refresh_token)
+          setTokens(data.data.access_token,data.data.refresh_token)
           setDescription('')
         }
         catch(error) {
             setDescription(error.response.data.error_description)
           }
     }   
-    const settingTokens = (accessToken,refreshToken) =>{
-        if ((accessToken !== undefined) && (refreshToken !== undefined)){
+    const setTokens = (accessToken,refreshToken) =>{
+        if ((!!accessToken) && (!!refreshToken)){
           localStorage.setItem('accessToken',accessToken)
           localStorage.setItem('refreshToken',refreshToken)
         }
@@ -62,7 +62,7 @@ return(
           <NavLink to = '/registration'>
               <span className='registration__link'>Create New Account</span>
           </NavLink>
-          <button type='submit' className = 'authform__submit' onClick = {gettingToken}>Log In</button>
+          <button type='button' className = 'authform__submit' onClick = {getToken}>Log In</button>
       </form>
     </div>)
 } 

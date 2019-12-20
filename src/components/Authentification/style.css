@@ -67,11 +67,14 @@
 }
 
 .auth__error {
+    max-width: 300px;
+    
     font-family: 'Acrom-Light', sans-serif;
     font-size: 16px;
     font-weight: 700;
     color: #ED5992;
     margin-bottom:5px;
+    text-transform: capitalize;
 }
 
 .registration__link {

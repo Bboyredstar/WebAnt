@@ -3,28 +3,28 @@ import Axios from 'axios'
 
 
 const Registration = () => {
-    const [userFullName,setFullName] = useState('')
-    const [userEmail,setUserEmail] = useState('')
-    const [userPhone,setUserPhone] = useState('')
-    const [userName,setUserName] = useState('')
-    const [userPasswd,setUserPasswd] = useState('')
+    const [fullName,setFullName] = useState('')
+    const [email,setEmail] = useState('')
+    const [phone,setPhone] = useState('')
+    const [username,setUserName] = useState('')
+    const [password,setPassword] = useState('')
     const [registrationErrrorDescription,setErrorDescription] = useState('')
     const [isRegistrationDone,setRegistrationFlag] = useState(false)
     const createUser = async () => {
         try{
-            Axios({
+           const data =  await Axios({
                 url:'api/users',
                 method:'post',
                 header:{
                     'Accept':'application/json'
                 },
                 data:{
-                    'email': userEmail,
-                    'phone': userPhone,
-                    'fullName': userFullName,
-                    'password': userName,
-                    'username': userPasswd,
-                    'roles': [
+                    email,
+                    phone,
+                    fullName,
+                    password,
+                    username,
+                    roles: [
                       ''
                     ]
                 }
@@ -32,34 +32,61 @@ const Registration = () => {
             setErrorDescription('')
             setRegistrationFlag(true)
         }
-        catch(e){
-            setErrorDescription(e.datail)
+        catch(error){
+            setErrorDescription(error.response.data.detail)
         }
     }
 
     const validation = ()=>{
-        if (userEmail && userPhone && userFullName && userName && userName){
+        if (email && phone && fullName && username && password){
             createUser()
         }
-        else {
-            return false
+        else{
+            setErrorDescription('Field can\'t be empty')
         }
 
     }
     return(
         <div >
-           { !isRegistrationDone? <form className='authform'> 
+           {isRegistrationDone? <h1>It's okey!</h1>:
+           <form className='authform'> 
                 {registrationErrrorDescription && <div className='auth__error'>{registrationErrrorDescription}</div>}
-                <input type='text' className='authform__input' minLength='8' maxLength='30' pattern='[A-Za-z]{3,}\s[A-Za-z]{5,}' placeholder='Full Name' onChange={(e)=>setFullName(e.target.value)} 
-                title='The name must contain at least five letters. Numbers and special characters are not allowed.' required/>
-                <input type='tel' className='authform__input' placeholder='Phone Number' minLength='11' maxLength='12' pattern='[0-9]{11,}'
-                 title='The name must contain at least eleven numbers.Letters and special characters are not allowed.' onChange={(e)=>setUserPhone(e.target.value)}  required/>
-                <input type='email' className='authform__input'  placeholder='Email' onChange={(e)=>setUserEmail(e.target.value)} required/> 
-                <input type='text' className='authform__input' placeholder='Username' minLength='5' maxLength='20' pattern='[A-Za-z0-9]{5,}'
-                onChange={(e)=>setUserName(e.target.value)} required/>
-                <input type='password' className='authform__input' minLength='6' maxLength='12' placeholder='Password' onChange={(e)=>setUserPasswd(e.target.value)} required/>
-                <button type='submit' className = 'authform__submit' onClick = {validation}>Log In</button>
-            </form>: <h1>It's okey!</h1> }
+                <input type='text' 
+                className='authform__input' 
+                placeholder='Full Name' 
+                onChange={(e)=>setFullName(e.target.value)} 
+                title='The name must contain at least five letters. Numbers and special characters are not allowed.' 
+                />
+                <input 
+                type='tel' 
+                className='authform__input' 
+                placeholder='Phone Number' 
+                title='The name must contain at least eleven numbers.Letters and special characters are not allowed.' 
+                onChange={(e)=>setPhone(e.target.value)}
+                />
+                <input 
+                type='email' 
+                className='authform__input'  
+                placeholder='Email' 
+                title='The email must contain @.'
+                onChange={(e)=>setEmail(e.target.value)} 
+                /> 
+                <input 
+                type='text' 
+                className='authform__input' 
+                placeholder='Username' 
+                onChange={(e)=>setUserName(e.target.value)} 
+                title='' 
+                />
+                <input 
+                type='password' 
+                className='authform__input' 
+                placeholder='Password' 
+                title=''
+                onChange={(e)=>setPassword(e.target.value)} 
+                />
+                <button type='button' className='authform__submit' onClick = {validation}>Log In</button>
+            </form> }
         </div>
     )
 }
