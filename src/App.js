@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/Header'
 import Images from './components/Images'
 import Authentification from './components/Authentification'
+import Registration from './components/Authentification/Registration'
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,6 +25,9 @@ function App() {
               </Route>
               <Route path='/authentification'>
                 <Authentification/>
+              </Route>
+              <Route path='/registration'>
+                <Registration/>
               </Route>
               <Redirect to='/new'/>
           </Switch>
