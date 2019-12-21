@@ -1,15 +1,22 @@
-import React, { useState }  from 'react'
+import React, { useState, useEffect }  from 'react'
+import SignIn from '../SignIn'
 import Axios from 'axios'
+import '../style.css'
 
 
-const Registration = () => {
+const Registration = ({clientId, clientSecret}) => {
     const [fullName,setFullName] = useState('')
     const [email,setEmail] = useState('')
     const [phone,setPhone] = useState('')
     const [username,setUserName] = useState('')
     const [password,setPassword] = useState('')
+    const [isRegistrationDone, setRegistrtionDone] = useState(false)
     const [registrationErrrorDescription,setErrorDescription] = useState('')
-    const [isRegistrationDone,setRegistrationFlag] = useState(false)
+
+    useEffect(()=>{
+        setRegistrtionDone(false)
+    },[])
+   
     const createUser = async () => {
         try{
            const data =  await Axios({
@@ -30,7 +37,9 @@ const Registration = () => {
                 }
             })
             setErrorDescription('')
-            setRegistrationFlag(true)
+            setRegistrtionDone(true)
+            sessionStorage.setItem('Authorized', true);
+            
         }
         catch(error){
             setErrorDescription(error.response.data.detail)
@@ -48,7 +57,7 @@ const Registration = () => {
     }
     return(
         <div >
-           {isRegistrationDone? <h1>It's okey!</h1>:
+            {!isRegistrationDone?
            <form className='authform'> 
                 {registrationErrrorDescription && <div className='auth__error'>{registrationErrrorDescription}</div>}
                 <input type='text' 
@@ -86,7 +95,11 @@ const Registration = () => {
                 onChange={(e)=>setPassword(e.target.value)} 
                 />
                 <button type='button' className='authform__submit' onClick = {validation}>Log In</button>
-            </form> }
+            </form>:
+            <>
+                <h1 className='auth-info'>Your account was successfully created. now please log in!</h1>
+                <SignIn clientId={clientId} clientSecret={clientSecret} isRegistrationDone/>
+            </> }   
         </div>
     )
 }

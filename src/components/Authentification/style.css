@@ -13,7 +13,7 @@
     margin: 0 auto;
     display: block;
     padding: 0 5px;
-    min-width:250px;
+    min-width: 250px;
     margin-bottom: 15px;
     line-height: 25px;
     font-size: 14px;
@@ -65,15 +65,28 @@
     background-color: #ED5992;
     color: #fff;
 }
-
+.auth-info{
+    display:block;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    position:absolute;
+    max-width: 350px;
+    text-align:center;
+    font-family: 'Acrom-Light', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    color: #ED5992;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
 .auth__error {
     max-width: 300px;
-    
     font-family: 'Acrom-Light', sans-serif;
     font-size: 16px;
     font-weight: 700;
     color: #ED5992;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     text-transform: capitalize;
 }
 
@@ -81,7 +94,7 @@
     font-family: 'Acrom-Light', sans-serif;
     font-size: 13px;
     font-weight: 700;
-    text-shadow: 0 1px 2px rgba(140, 140, 140,.5) ;
+    text-shadow: 0 1px 2px rgba(140, 140, 140, .5);
     color: #8C8C8C;
     transition: all .2s ease;
 }
