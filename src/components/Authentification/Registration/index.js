@@ -19,7 +19,7 @@ const Registration = ({clientId, clientSecret}) => {
    
     const createUser = async () => {
         try{
-           const data =  await Axios({
+            await Axios({
                 url:'api/users',
                 method:'post',
                 header:{

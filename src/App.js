@@ -11,12 +11,6 @@ import {
 } from 'react-router-dom'
 
 function App() {
-  const [isAuthorized,setAuthorization] = useState(false)
-  useEffect(()=>{
-      if(!!sessionStorage.getItem('Authorized')){
-        setAuthorization(true)
-      }
-  },[isAuthorized])
   
   return (
       <Router>
@@ -30,10 +24,10 @@ function App() {
                   <Images Popular/>
                 </Route>
                 <Route path='/authentification'>
-                  <Authentification isAuthorized />
+                  <Authentification />
                 </Route>
                 <Route path='/registration'>
-                  <Authentification registration isAuthorized />
+                  <Authentification registration/>
                 </Route>
                 <Redirect to='/new'/>
             </Switch>

@@ -1,38 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import SignIn from './SignIn'
 import Registration from './Registration'
+import ImageUpload from '../ImageUpload'
 import Axios from 'axios'
 import './style.css'
 
-const Authentification = ({isAuthorized,registration}) => {
-    const [clientId,setClientId] = useState('')
-    const [clientSecret, setClientSecret] = useState('')
-    const [clientDataError,setClientDataError] = useState('')
-    
-    useEffect(()=>{
-        getClientId() 
-      },[])
-  
-      const getClientId = async () => {
-        try {
-          const response = await Axios.post('api/clients',{
-            "name": "string",
-            "allowedGrantTypes": [
-            "password", "refresh_token"]
-          }) 
-          setClientId(response.data.id + '_' + response.data.randomId)
-          setClientSecret(response.data.secret)
-        }
-        catch(error){
-          setClientDataError('Sorry some problem with server, try again later!')
-        }
-      }
-      
+const Authentification = ({registration}) => {
+    const clientId='840_54akov57sps0s0k0ogcockwskkw0o84ck0o08sw00gwcwco808'
+    const clientSecret = '2nb49hgzvoow40okkso0cc80osso00sc48swcgs88swwgkgccc'
+    const [isAuthorized,setAuthorization] = useState(sessionStorage.getItem('Authorized'))
+
     return(
         <>  
             {registration? <Registration clientId={clientId} clientSecret={clientSecret}/>:
-            isAuthorized?'':<SignIn clientId={clientId} clientSecret={clientSecret} />
-        }
+            isAuthorized? <ImageUpload  clientId={clientId} clientSecret={clientSecret}/>
+            :<SignIn clientId={clientId} clientSecret={clientSecret} setAuthorization={setAuthorization}/>}
         </>
     )
 }

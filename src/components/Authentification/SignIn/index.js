@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import { NavLink } from 'react-router-dom'
 import '../style.css'
-const SignIn = ({clientId, clientSecret, isRegistrationDone}) => {
+const SignIn = ({clientId, clientSecret, isRegistrationDone, setAuthorization}) => {
 
     const [userName,setUserName] = useState('')
     const [userPasswd,setUserPasswd] = useState('')
-    const [errorTokenDescription,setDescription] = useState('')
+    const [errorTokenDescription,setDescription] = useState()
 
     const getToken = async () =>{
         try{
@@ -21,7 +21,8 @@ const SignIn = ({clientId, clientSecret, isRegistrationDone}) => {
           })
           setTokens(data.data.access_token,data.data.refresh_token)
           setDescription('')
-          sessionStorage.setItem('Authorized', true);
+          setAuthorization(true)
+          sessionStorage.setItem('Authorized',true)
         }
         catch(error) {
             setDescription(error.response.data.error_description)
@@ -36,7 +37,7 @@ const SignIn = ({clientId, clientSecret, isRegistrationDone}) => {
     
 return(
     <div className='authform'>
-      <form >
+     <form >
           {errorTokenDescription && <div className='auth__error'>{errorTokenDescription}</div>}
           <input type='text' className='authform__input' maxLength = '20' placeholder='Username' onChange={(e)=>setUserName(e.target.value)} title='Input Username' required/>
           <input type='password' className='authform__input' minLength='6' maxLength='12' placeholder='Password' onChange={(e)=>setUserPasswd(e.target.value)} title='Input Password' required/>
