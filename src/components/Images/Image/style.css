@@ -36,6 +36,7 @@
 }
 
 .modal-image {
+    background: rgb(139, 137, 137);
     display: block;
     width: 680px;
     height: 510px;

@@ -78,7 +78,11 @@
 }
 
 .category-type {
+    outline:none;
     transform: translateX(-50%);
+}
+.category-type :focus{
+    outline:none;
 }
 
 .category:after {
@@ -160,4 +164,10 @@
     background: transparent;
     color:#ED5992;
     border:1px solid #ED5992;
+}
+.upload-form__error{
+    padding: 0;
+    margin-bottom: 5px;
+    font-weight: 900;
+    color:#ED5992;
 }

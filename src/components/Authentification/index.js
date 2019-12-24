@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import SignIn from './SignIn'
 import Registration from './Registration'
 import ImageUpload from '../ImageUpload'
-import Axios from 'axios'
 import './style.css'
 
 const Authentification = ({registration}) => {
