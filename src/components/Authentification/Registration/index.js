@@ -2,6 +2,12 @@ import React, { useState, useEffect }  from 'react'
 import SignIn from '../SignIn'
 import Axios from 'axios'
 import '../style.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+  } from 'react-router-dom'
 
 
 const Registration = ({clientId, clientSecret}) => {
@@ -11,7 +17,7 @@ const Registration = ({clientId, clientSecret}) => {
     const [username,setUserName] = useState('')
     const [password,setPassword] = useState('')
     const [isRegistrationDone, setRegistrtionDone] = useState(false)
-    const [registrationErrrorDescription,setErrorDescription] = useState('')
+    const [registrationErrorDescription,setErrorDescription] = useState('')
 
     useEffect(()=>{
         setRegistrtionDone(false)
@@ -38,7 +44,7 @@ const Registration = ({clientId, clientSecret}) => {
             })
             setErrorDescription('')
             setRegistrtionDone(true)
-            sessionStorage.setItem('Authorized', true);
+            sessionStorage.setItem('Authorized',true)
             
         }
         catch(error){
@@ -59,7 +65,7 @@ const Registration = ({clientId, clientSecret}) => {
         <div >
             {!isRegistrationDone?
            <form className='authform'> 
-                {registrationErrrorDescription && <div className='auth__error'>{registrationErrrorDescription}</div>}
+                {registrationErrorDescription && <div className='auth__error'>{registrationErrorDescription}</div>}
                 <input type='text' 
                 className='authform__input' 
                 placeholder='Full Name' 
@@ -96,9 +102,8 @@ const Registration = ({clientId, clientSecret}) => {
                 />
                 <button type='button' className='authform__submit' onClick = {validation}>Log In</button>
             </form>:
-            <>
-                <h1 className='auth-info'>Your account was successfully created. now please log in!</h1>
-                <SignIn clientId={clientId} clientSecret={clientSecret} isRegistrationDone/>
+            <>  
+                <Redirect to='/authentification'/>
             </> }   
         </div>
     )

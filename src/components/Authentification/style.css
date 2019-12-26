@@ -52,18 +52,18 @@
     width: 150px;
     height: 25px;
     border: 1px solid #ED5992;
-    color: #ED5992;
+    color: #fff;
     border-radius: 35px;
-    background: transparent;
+    background: #ED5992;
     font-family: 'Acrom-Light', sans-serif;
     font-weight: 700;
     transition: all .2s ease;
 }
 
 .authform__submit:hover {
-    border: 1px solid transparent;
-    background-color: #ED5992;
-    color: #fff;
+    border: 1px solid #ED5992;
+    background-color: #fff;
+    color: #ED5992;
 }
 .auth-info{
     display:block;

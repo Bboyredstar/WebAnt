@@ -33,7 +33,8 @@ const Images = ({New = false, Popular = false})=>{
                     new:New,
                     popular:Popular,
                     page,
-                    limit:15
+                    limit:15,
+                    'order[id]':'desc'
                 }
             }) 
             setCount( data.totalItems)

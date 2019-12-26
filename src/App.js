@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Header from './components/Header'
 import Images from './components/Images'
 import Authentification from './components/Authentification'
-import Registration from './components/Authentification/Registration'
 import {
   BrowserRouter as Router,
   Switch,

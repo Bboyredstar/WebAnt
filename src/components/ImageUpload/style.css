@@ -16,8 +16,8 @@
     justify-content: center;
     align-items: left;
     border-radius:20px;
-    border:3px solid rgba(140, 140, 140, .2);
-    box-shadow: 10px 10px 16px -10px rgba(237,89,146,1);
+    border:1px solid rgba(237,89,146,.4);
+    box-shadow: 10px 10px 16px -10px rgba(237,89,146,.6);
     font-family: 'Acrom-Light', sans-serif;
     font-weight: 700;
     font-size: 15px;
@@ -36,7 +36,7 @@
     color: #8C8C8C;
     width: 100%;
     border: 1px solid rgba(140, 140, 140, .6);
-    box-shadow: 1px 1px 1px 1px rgba(140, 140, 140, .6);
+    box-shadow: 1px 1px 1px 1px rgba(140, 140, 140, .3);
     border-radius: 5px;
     font-weight:800;
     text-transform: capitalize;
@@ -44,7 +44,7 @@
 
 .form__image-name:focus {
     border: 1px solid #ED5992;
-    box-shadow: 1px 1px 2px 1px #ED5992;
+    box-shadow: 1px 1px 2px 1px rgba(237, 89, 146,.5);
 }
 
 .form__title {
@@ -68,6 +68,7 @@
 
 .category {
     display:block;
+    font-size: 14px;
     width: 70px;
     cursor: pointer;
     position: relative;
@@ -117,7 +118,8 @@
     padding: 5px 5px;
     text-transform: capitalize;
     font-weight: 600;
-    border: 2px solid rgba(140, 140, 140, .6);
+    border: 2px solid rgba(140, 140, 140, .4);
+    border-radius:10px;
 }
 
 .form__image-description:focus {

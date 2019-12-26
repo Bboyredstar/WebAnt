@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import Axios from 'axios'
 import { NavLink } from 'react-router-dom'
 import '../style.css'
-const SignIn = ({clientId, clientSecret, isRegistrationDone, setAuthorization}) => {
+const SignIn = ({clientId, clientSecret, setAuthorization}) => {
 
     const [userName,setUserName] = useState('')
     const [userPasswd,setUserPasswd] = useState('')
     const [errorTokenDescription,setDescription] = useState()
+    const [isRegistrationDone,setRegistrationFlag] = useState('')
+
+    useEffect(()=>{
+      setRegistrationFlag(sessionStorage.getItem('Authorized'))
+  },[])
 
     const getToken = async () =>{
         try{
-          const data = await Axios.get('oauth/v2/token',{
+          const response = await Axios.get('oauth/v2/token',{
             params:{
               'grant_type':'password',
               'client_id':clientId,
@@ -19,7 +24,7 @@ const SignIn = ({clientId, clientSecret, isRegistrationDone, setAuthorization}) 
               'password':userPasswd
             }
           })
-          setTokens(data.data.access_token,data.data.refresh_token)
+          setTokens(response.data.access_token,response.data.refresh_token)
           setDescription('')
           setAuthorization(true)
           sessionStorage.setItem('Authorized',true)
